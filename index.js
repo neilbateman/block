@@ -19,3 +19,19 @@ const createOriginBlock = () => {
 const nextBlock = (lastBlock, data) => {
     new Block(lastBlock.index + 1, Date.now(), data, lastBlock.thisHash)
 };
+
+const createBlockchain = (num) => {
+    const blockchain = [createOriginBlock()];
+    let previousBlock = blockchain[0];
+
+    for (let i = 1; i < num; i +=1) {
+        const blockToAdd = nextBlock(previousBlock, `Block #${i}`);
+        blockchain.push(blockToAdd);
+        previousBlock = blockToAdd;
+    }
+    console.log(blockchain)
+};
+
+// const length = 10;
+// createBlockchain(length);
+
