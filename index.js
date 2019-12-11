@@ -11,3 +11,5 @@ class Block {
         );
     }
 }
+
+const createOriginBlock = () => new Block(0, Date.now(), 'OriginBlock', '0');
